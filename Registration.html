@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+  <table border="2" align="center" method="post" autocomplete="off" name="google-sheet" style="color:black;background-color:silver" >
+      <tr>
+          <td colspan="2" align="center">REGISTRATION PAGE</td>
+      </tr>
+      <tr>
+          <td> First Name</td>
+          <td>
+              <input type="text" style="color:black;background-color:white" id="FN"/>
+          </td>
+      </tr>
+      <tr>
+        <td> Last Name</td>
+        <td>
+            <input type="text" style="color:black;background-color:white" id="LN"/>
+        </td>
+       </tr>
+       <tr>
+           <td>User Name</td>
+           <td>
+               <input type="text" style="color:black;background-color:white" id="txtUserName"/>
+           </td>
+       </tr>
+       <tr>
+           <td>Password</td>
+           <td>
+               <input type="password" style="color:black;background-color:white" id="txtpassword"/>
+           </td>
+       </tr>
+       <tr>
+           <td> Branch</td>
+           <td>
+               <select id="drpBranches" style="color:black;background-color:white">
+                   <option>CSE</option>
+                   <option>ECE</option>
+                   <option>ECM</option>
+                   <option>MECH</option>
+               </select>
+           </td>
+       </tr>
+       <tr>
+           <td>Gender</td>
+           <td>
+               <input type="radio" style="color:white;background-color:white" id="rmale" name="gender" />Male
+               <input type="radio" style="color:white;background-color:white"   id="rfemale" name="gender" />Female
+           </td>
+       </tr>
+       <tr>
+           <td>
+               Hobbies
+           </td>
+           <td>
+               <input type="checkbox" id="cplaying"/>Playing
+               <input type="checkbox" id="creading"/>Reading
+               <input type="checkbox" id="cwriting"/>Writing
+           </td>
+       </tr>
+       <tr>
+           <td>Address</td>
+           <td>
+               <textarea id='tAddress' style="color:black;background-color:white" cols="155" rows="9"></textarea>
+           </td>
+       </tr>
+       <tr>
+           <td>
+                <input type="button" class="btnSubmit btn-block" id="btnclear" value="Clear" />
+           </td>
+           <td>
+               <input type="submit" name="submit" class="btnSubmit btn-block" id="btnRegister" value="Register"/> 
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2">
+               <a href="Login.html" target="_blank" >Already User ? Sign In</a>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2">
+               <a href="Home.html" target="_blank" >Back</a>
+           </td>
+       </tr>
+  </table>
+     
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwC-_lwVvQ75G73X6O_0v0tAL82FFRzF5YQ38-la4hkODSrYDwefPWMFTgqvRGZTgU4/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  
+</body>
+</html>
